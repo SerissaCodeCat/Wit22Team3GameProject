@@ -1,4 +1,8 @@
+CSGBox3D
 MeshInstance3D
+Camera3D
+Node3D
+CollisionShape3D
+CharacterBody3D
 DirectionalLight3D
 WorldEnvironment
-Camera3D
