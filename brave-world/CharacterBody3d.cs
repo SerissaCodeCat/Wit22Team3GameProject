@@ -10,7 +10,7 @@ public partial class CharacterBody3d : CharacterBody3D
 	[Export]
 	public float JumpVelocity = 4.5f;
 	[Export]
-	public float GravityMultiplier = 1;
+	public float CurrentGforce = 1;
 	[Export]
 	public float MouseLookSensitivity = 0.01f;
 	[Export]
@@ -26,7 +26,7 @@ public partial class CharacterBody3d : CharacterBody3D
     {
 		DefaultGravity = new Vector3(0.0f, -(float)ProjectSettings.GetSetting("physics/3d/default_gravity"), 0.0f);
 		GD.Print("Default gravity set to: " + DefaultGravity);
-		CurrentGravity = DefaultGravity * GravityMultiplier;
+		CurrentGravity = DefaultGravity * CurrentGforce;
 		GD.Print("current gravity set to: " + CurrentGravity);
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		Head = GetNode<Node3D>($"Head");
@@ -71,11 +71,10 @@ public partial class CharacterBody3d : CharacterBody3D
 		// Add the gravity.
 		if (!IsOnFloor())
 		{
-			GD.Print("In the air, movement set to: " + CurrentGravity);
 			velocity += CurrentGravity * (float)delta;
 		}
 		// Handle Jump.
-		if (Input.IsActionJustPressed("Jump") /*&& IsOnFloor()*/)
+		if (Input.IsActionJustPressed("Jump") && IsOnFloor())
 		{
 			GD.Print("Jump Pressed");
 			velocity.Y = JumpVelocity;
@@ -84,7 +83,7 @@ public partial class CharacterBody3d : CharacterBody3D
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
 		Vector2 inputDir = Input.GetVector("StrafeLeft", "StrafeRight", "Forwards", "Backwards");
-		Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
+		Vector3 direction = (Head.Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
 		if (direction != Vector3.Zero)
 		{
 			velocity.X = direction.X * Speed;

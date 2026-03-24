@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Brave_world")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+02841477e93947557e03001a69f8cf1ed7841b5e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0f29fc0e270d624b86fa2eea3580d3ec79c43448")]
 [assembly: System.Reflection.AssemblyProductAttribute("Brave_world")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Brave_world")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
