@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 project/assembly_name="Brave_world"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 Forwards={

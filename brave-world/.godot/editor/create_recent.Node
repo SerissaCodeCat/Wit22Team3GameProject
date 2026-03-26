@@ -1,8 +1,8 @@
-OmniLight3D
+Node3D
 CSGBox3D
+OmniLight3D
 MeshInstance3D
 Camera3D
-Node3D
 CollisionShape3D
 CharacterBody3D
 DirectionalLight3D
